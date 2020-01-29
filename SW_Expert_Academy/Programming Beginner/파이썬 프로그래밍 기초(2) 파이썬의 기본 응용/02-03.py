@@ -6,6 +6,7 @@
 [[2, 4, 8, 10, 16], [], [4, 8, 16, 20, 32], [5, 10, 20, 25, 40], [], [], [8, 16, 32, 40, 64], []]
 '''
 multi_list = []
+mul = []
 
 for i in range(2,10):
     for j in range(1,10):
@@ -13,3 +14,7 @@ for i in range(2,10):
             pass
         else:
             mul.append(i*j)
+    multi_list.append(mul)
+    mul = []
+
+print(multi_list)
