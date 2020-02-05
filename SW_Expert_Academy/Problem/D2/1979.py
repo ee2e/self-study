@@ -62,4 +62,20 @@ for tc in range(T):
                         else:
                             break
                     length_list[length] += 1
+                else:
+                    length = 0
+                    for k in range(j,N):
+                        if data[i][k] == 1 :
+                            length += 1
+                        else:
+                            break
+                    length_list[length] += 1
+                    length = 0
+                    for k in range(i,N):
+                        if data[k][j] == 1 :
+                            length += 1
+                        else:
+                            break
+                    length_list[length] += 1
+
     print(f'#{tc+1} {length_list[K]}')
