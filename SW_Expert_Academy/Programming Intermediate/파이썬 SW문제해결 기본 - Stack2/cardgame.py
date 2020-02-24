@@ -24,8 +24,8 @@ def rsp(card):
             else:
                 return card[0]
     else:
-        A = rsp(card[:len(card)//2])
-        B = rsp(card[len(card)//2:])
+        A = rsp(card[:(1+len(card))//2])
+        B = rsp(card[(1+len(card))//2:])
         return rsp([A, B])
 
 

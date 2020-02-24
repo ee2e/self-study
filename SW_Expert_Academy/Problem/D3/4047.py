@@ -8,7 +8,7 @@ for tc in range(T):
     card_dummy = input()
     card_list = []
 
-    for i in range(0,12,3):
+    for i in range(0,len(card_dummy),3):
         card_list.append(card_dummy[i:i+3])
 
     S_num = [0]*14
@@ -17,7 +17,7 @@ for tc in range(T):
     C_num = [0]*14
 
     result = 0
-    for i in range(4):
+    for i in range(len(card_list)):
         if card_list[i][0] == 'S':
             if S_num[int(card_list[i][1:])]:
                 result = 'ERROR'
