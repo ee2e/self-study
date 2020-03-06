@@ -8,35 +8,30 @@ for tc in range(1,T+1):
     N, M, R, C, L = map(int,input().split())
     manhole = [list(map(int,input().split())) for _ in range(N)]
 
-    dx_j = [0,0,-1,1]
-    dy_i = [-1,1,0,0]
-    visited = []
-    def exodus(manhole, R, C, L, k):
-        if manhole[R][C] == 0:
-            d = []
-        elif manhole[R][C] == 1:
-            d = [0,1,2,3]
-        elif manhole[R][C] == 2:
-            d = [0,1]
-        elif manhole[R][C] == 3:
-            d = [2,3]
-        elif manhole[R][C] == 4:
-            d = [0,3]
-        elif manhole[R][C] == 5:
-            d = [1,3]
-        elif manhole[R][C] == 6:
-            d = [1,2]
-        else:
-            d = [0,2]
+    V = [[0]*M for _ in range(N)]
+    pipe = [[], [0,1,2,3], [1,3], [0,2], [0,3], [0,1], [1,2], [2,3]]
 
-        if k == L-1:
-            return
-        else:
-            for i in range(len(d)):
-                if 0 <= R+dy_i[d[i]] < N and 0 <= C+dx_j[d[i]] < N and room[R+dy_i[d[i]]][C+dx_j[d[i]]] != 0:
-                    if manhole[R+dy_i[d[i]]][C+dx_j[d[i]]] not in visited:
-                        visited.append([R+dy_i[d[i]],C+dx_j[d[i]]])
-                        exodus(manhole, R+dy_i[d[i]], C+dx_j[d[i]], L, k+1)
+    dx_j = [1,0,-1,0]
+    dy_i = [0,1,0,-1]
 
-    exodus(manhole, R, C, L, 0)
-    print(len(visited))
+    t = 1
+    V[R][C] = t
+    while t < L:
+        t += 1
+        for i in range(N):
+            for j in range(M):
+                if V[i][j] == t-1:
+                    for k in pipe[manhole[i][j]]:
+                        ni = i + dy_i[k]
+                        nj = j + dx_j[k]
+                        if 0 <= ni < N and 0 <= nj < M and V[ni][nj] == 0:
+                            if (k+2)%4 in pipe[manhole[ni][nj]]:
+                                V[ni][nj] = t
+    
+    cnt = 0
+    for i in range(N):
+        for j in range(M):
+            if V[i][j] != 0:
+                cnt += 1
+
+    print(f'#{tc}', cnt)
