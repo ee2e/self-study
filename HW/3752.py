@@ -39,17 +39,42 @@ T = int(input())
 #     print(f'#{tc}', len(result))
 
 
-for tc in range(1,T+1):
-    N = int(input())
-    score = list(map(int,input().split()))
+# for tc in range(1,T+1):
+#     N = int(input())
+#     score = list(map(int,input().split()))
 
-    max_score = sum(score)
-    temp = [False] * (max_score+1)
-    temp[0] = True
+#     max_score = sum(score)
+#     temp = [False] * (max_score+1)
+#     temp[0] = True
 
-    for i in score:
-        for j in range(len(temp)-1,-1,-1):
-            if temp[j]:
-                temp[i+j] = True
+#     for i in score:
+#         for j in range(len(temp)-1,-1,-1):
+#             if temp[j]:
+#                 temp[i+j] = True
 
-    print(f'#{tc} {sum(temp)}')
+#     print(f'#{tc} {sum(temp)}')
+
+
+
+# for tc in range(1,T+1):
+#     N = int(input())
+#     score = list(map(int,input().split()))
+
+#     scores = {0}
+#     for x in score:
+#         temp = set()
+#         for y in scores:
+#             temp.add(y+x)
+#         scores = set(list(scores)+list(temp))
+
+#     print(f'#{tc}',len(scores))
+
+
+
+for tc in range(1, T+1):
+    d = input()
+    data = map(int, input().split())
+    a=1
+    for i in data:
+        a |= a<<i
+    print('#%i'%tc,bin(a).count('1'))

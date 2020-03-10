@@ -17,4 +17,5 @@ for tc in range(1,T+1):
         for i in range(min(temp),max(temp)+1):
             room[i] += 1
     
-    print(f'#{tc}', max(room))
+    print(f'{tc}', max(room))
+        
