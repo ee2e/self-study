@@ -4,6 +4,7 @@ sys.stdin = open('5607.txt', 'r')
 
 T = int(input())
 
+ans = []
 for tc in range(1,T+1):
     N, R = map(int,input().split())
     if R > N-R:
@@ -26,5 +27,7 @@ for tc in range(1,T+1):
         result = fraction % 1234567891
     else:   
         result = fraction
-        
-    print(f'#{tc} {result}')
+
+    ans.append(f'#{tc} {result}')
+
+print('\n'.join(ans))
