@@ -19,7 +19,7 @@ for tc in range(1,T+1):
             if sum < minV:
                 minV = sum
             if sum > maxV:
-                maxV = sum
+                maxV = sum 
         else:
             operator[0] -= 1
             cal(n, k+1, sum + num[k])
