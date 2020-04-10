@@ -7,7 +7,7 @@
 184
 '''
 str_list = list("ADCBBBBCABBCBDACBDCAACDDDCAABABDBCBCBDBDBDDABBAAAAAAADADBDBCBDABADCADC")
-int_list = list(map(lambda x : ord('E') - ord(x),str_list))
+int_list = list(map(lambda x : ord('E') - ord(x), str_list))
 print(sum(int_list))
 
 # ord, chr 함수

@@ -43,13 +43,13 @@ for tc in range(1,T+1):
         dic = {}
         for part in participant:
             dic[hash(part)] = part
-            print(hash(part))
             temp += int(hash(part))
         for com in completion:
             temp -= hash(com)
         answer = dic[temp]
-
         return answer
+
+
 
     result = solution(participant, completion)
 
