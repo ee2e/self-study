@@ -1,6 +1,6 @@
 string = input()
 
-croatia_alpha = ['c=', 'c-', 'd-', 'li', 'nj', 's=', 'z=', 'dz=']
+croatia_alpha = ['c=', 'c-', 'd-', 'lj', 'nj', 's=', 'z=', 'dz=']
 i = 0; cnt = 0
 while i < len(string):
     if string[i:i+2] in croatia_alpha:
